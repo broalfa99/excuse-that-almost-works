@@ -22,6 +22,8 @@ def main():
     line = LINE.strip()
     if not line:
         raise SystemExit("entry line is empty")
+    if "\n" in line or "\r" in line:
+        raise SystemExit("entry line must be a single line")
     words = line.split()
     if len(words) > MAX_WORDS:
         raise SystemExit(
